@@ -118,7 +118,7 @@ function run (event) {
     }
     // rename to tileLayer
 
-    var monthLayer = new VideoTileLayer({src: 'VideoTilesPerMonth_mp4_512new'})
+    var monthLayer = new VideoTileLayer({src: 'videoTilesPerMonth_mp4_512new'})
     var yearLayer = new VideoTileLayer({src: 'videoTilesPerYear_mp4_512new'})
     var layerControl = L.control.layers({
     			'month': monthLayer,
