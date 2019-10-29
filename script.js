@@ -39,7 +39,7 @@ function run (event) {
 
         initialize(options) {
           let defaultOptions = {
-            tileSize: 256,
+            tileSize: 512,
             noWrap: false,
             interactive: true,
             keepBuffer: 0
@@ -118,7 +118,7 @@ function run (event) {
     }
     // rename to tileLayer
 
-    var monthLayer = new VideoTileLayer({src: 'VideoTilesPerMonth_mp4_test'})
+    var monthLayer = new VideoTileLayer({src: 'VideoTilesPerMonth_mp4_512new'})
     var yearLayer = new VideoTileLayer({src: 'videoTilesPerYear_mp4_512new'})
     var layerControl = L.control.layers({
     			'month': monthLayer,
