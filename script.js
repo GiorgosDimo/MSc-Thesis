@@ -23,9 +23,7 @@ var color = document.getElementById('colorpicker');
 function run (event) {
 
     // timing object
-    //var to = new TIMINGSRC.TimingObject({range:[0,20]})
-    var to = new TIMINGSRC.TimingObject();
-    
+    var to = new TIMINGSRC.TimingObject({range:[0,20]})
     var map = new L.Map('map', { center: new L.LatLng(0, 0), zoom: 2, maxZoom: 3});
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 			maxZoom: 3,
@@ -63,26 +61,26 @@ function run (event) {
             let video = document.createElement('video');
             video.src = `${this.src}/${coords.z}/${coords.x}/${coords.y}.mp4`;
 
-            //console.log('video.src', video.src)
+            //console.log('video.src', this.src)
 
             video.autoplay = false;
             video.muted = true;
             video.preload = true;
             video.controls = false;
             div.appendChild(video)
-      	    let canvas1 = L.DomUtil.create('canvas');
+      			let canvas1 = L.DomUtil.create('canvas');
 
-            let canvas2 = L.DomUtil.create('canvas');
+      			let canvas2 = L.DomUtil.create('canvas');
             div.appendChild(canvas1)
-            div.appendChild(canvas2)
-      	    let size = this.getTileSize();
+      			div.appendChild(canvas2)
+      			let size = this.getTileSize();
             canvas1.setAttribute("name", "canvas1");
             canvas2.classList.add('color')
             div.setAttribute("id", 'tile-' + coords.z + '-' + coords.x + '-' +  coords.y)
             canvas1.width = size.x;
-      	    canvas1.height = size.y;
-            canvas2.width = size.x;
-            canvas2.height = size.y;
+      			canvas1.height = size.y;
+      			canvas2.width = size.x;
+      			canvas2.height = size.y;
 
             L.DomUtil.addClass(canvas2, 'leaflet-interactive');
             this.addInteractiveTarget(canvas2)
@@ -125,7 +123,7 @@ function run (event) {
     			'year': yearLayer
     		})
     monthLayer.addTo(map)
-    console.log("month layer", monthLayer)
+    //console.log("month layer", monthLayer)
     layerControl.addTo(map)
     let tileLayer = makeTileLayer()
     tileLayer.addTo(map)
@@ -148,7 +146,7 @@ function run (event) {
 
     layers.forEach(tileLayer => {
       tileLayer.on('tileunload', (e) => {
-          let sync = syncs[e.coords]
+          //let sync = syncs[e.coords]
           //let rafid = draws[e.coords]
           /*for (d in draws){
             //console.log(draws[e.coords])
@@ -167,6 +165,8 @@ function run (event) {
           let coords = e.coords;
           //console.log('coords', e.coords)
           let video = tile.childNodes[0]
+          let source = video.src
+          console.log("video",source.slice(0,48))
           let canvas1 = tile.childNodes[1]
           let canvas2 = tile.childNodes[2]
           let ctx1 = canvas1.getContext('2d');
@@ -177,22 +177,22 @@ function run (event) {
 
           video.onloadeddata = () => {
 
-              let sync = MCorp.mediaSync(video, to, {loop: true});
+              let sync = MCorp.mediaSync(video, to);
               syncs[e.coords] = sync;
               video.onplay = () => {
                 callDraw();
-        	video.style.display = 'none';
-        	canvas1.style.display = 'none';
+        				video.style.display = 'none';
+        				canvas1.style.display = 'none';
                 console.log('play')
                 //console.log("tiles play", e.coords)
-              };
+        			};
               let rif = requestAnimationFrame(callDraw);
               //console.log("rif",rif)
               //draws[e.coords] = rif;
 
           }
 
-           
+
             var draw = function(step, video, canvas1, canvas2, ctx1, ctx2, coords, lastT){
                   //console.log('canvas1',canvas1)
                   var v = to.query();
@@ -239,14 +239,14 @@ function run (event) {
 
       })
     })
-    /*to.on("timeupdate", function () {
+    to.on("timeupdate", function () {
       document.getElementById("position").innerHTML = to.query().position.toFixed(3);
       var v = to.query();
       if (v.position === 20.0){
         to.update({position: 0.0})
         to.update({velocity: 1.0})
       }
-    });*/
+    });
     var keepinsync = function() {
       var v = to.query();
       if (v.velocity === 1.0){
