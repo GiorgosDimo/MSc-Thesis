@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Leaflet debug page</title>
+
+  <link rel="stylesheet" href="leaflet.css" />
+
+  <link rel="stylesheet" href="screen.css" />
+
+  <script src="leaflet-include.js"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://webtiming.github.io/timingsrc/lib/timingsrc-v2.js" text="javascript"></script>
+  <script text="javascript" src="https://mcorp.no/lib/mediasync.js"></script>
+
+
+</head>
+  <body>
+    <div id="demo" style="height:50px">
+      <p>
+        <button id="reset">Reset</button>
+        <button id="pause">Pause</button>
+        <button id="play">Play</button>
+  			<button id="RdBubtn">RdBu</button>
+  			<button id="spectralbtn">Spectral</button>
+        <div id="colorpicker" style="width:200px;height:50px;float:left"></div>
+      </p>
+      <p>
+        <b><span id='position'></span></b>
+      </p>
+    </div>
+    <div id="map">
+
+    </div>
+    <script type="text/javascript" src="script.js">
+    </script>
+  </body>
+</html>

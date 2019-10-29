@@ -1,0 +1,8 @@
+#map {
+  width: 800px;
+  height: 600px;
+}
+
+#map .leaflet-interactive .leaflet-tile-container {
+  pointer-events: initial;
+}
