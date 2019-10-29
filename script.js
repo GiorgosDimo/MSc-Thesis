@@ -68,7 +68,7 @@ function run (event) {
             video.autoplay = false;
             video.muted = true;
             video.preload = true;
-            video.controls = false;
+            video.controls = true;
             div.appendChild(video)
       	    let canvas1 = L.DomUtil.create('canvas');
 
