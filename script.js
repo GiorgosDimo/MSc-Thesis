@@ -179,7 +179,7 @@ function run (event) {
 
               let sync = MCorp.mediaSync(video, to, {loop: true});
               syncs[e.coords] = sync;
-              /*video.onplay = () => {
+              video.onplay = () => {
                 callDraw();
         	video.style.display = 'none';
         	canvas1.style.display = 'none';
@@ -188,7 +188,7 @@ function run (event) {
               };
               let rif = requestAnimationFrame(callDraw);
               //console.log("rif",rif)
-              //draws[e.coords] = rif;*/
+              //draws[e.coords] = rif;
 
           }
 
