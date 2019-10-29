@@ -1,4 +1,4 @@
-/*document.getElementById("RdBubtn").onclick = (e) => {
+document.getElementById("RdBubtn").onclick = (e) => {
   changeColor("RdBu");
 }
 
@@ -19,7 +19,7 @@ var changeColor = function(cmn){
 
 changeColor("Spectral");
 var color = document.getElementById('colorpicker');
-*/
+
 function run (event) {
 
     // timing object
@@ -171,9 +171,9 @@ function run (event) {
           let canvas2 = tile.childNodes[2]
           let ctx1 = canvas1.getContext('2d');
           let ctx2 = canvas2.getContext('2d');
-          /*var callDraw = function(step){
+          var callDraw = function(step){
             return draw(step, video, canvas1, canvas2, ctx1, ctx2, coords, lastT)
-          }*/
+          }
 
           video.onloadeddata = () => {
 
