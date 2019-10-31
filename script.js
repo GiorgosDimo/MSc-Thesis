@@ -24,7 +24,7 @@ function run (event) {
 
     // timing object
     var to = new TIMINGSRC.TimingObject({range:[0,20]})
-    var map = new L.Map('map', { center: new L.LatLng(0, 0), zoom: 2, maxZoom: 3});
+    var map = new L.Map('map', { center: new L.LatLng(0, 0), zoom: 1, maxZoom: 3});
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 			maxZoom: 3,
 			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
